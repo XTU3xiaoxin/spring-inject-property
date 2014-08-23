@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.tja</groupId>
+  <artifactId>spring-inject-property</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>spring-inject-property Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>3.2.4.RELEASE</spring.version>
+    <slf4j.version>1.6.1</slf4j.version>
+    <querydsl.version>2.8.0</querydsl.version>
+    <ehcache.version>2.6.5</ehcache.version>
+  </properties>
+
+  <dependencies>
+	   <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>4.8.2</version>
+	      <scope>test</scope>
+	    </dependency>
+     <!--   spring depencies -->
+      <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-core</artifactId>
+	   <version>${spring.version}</version>
+	 </dependency>
+	 <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-beans</artifactId>
+	   <version>${spring.version}</version>
+	 </dependency>
+	 <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-context</artifactId>
+	   <version>${spring.version}</version>
+	 </dependency>
+	 <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-aop</artifactId>
+	   <version>${spring.version}</version>
+	 </dependency>
+	 <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-context-support</artifactId>
+	   <version>${spring.version}</version>
+	 </dependency>
+	
+	 <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-test</artifactId>
+	   <version>${spring.version}</version>
+	 </dependency>
+   </dependencies>
+  <build>
+    <finalName>spring-inject-property</finalName>
+    <plugins>
+       <plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.3.2</version>
+			<configuration>
+				<source>1.6</source>
+				<target>1.6</target>
+			</configuration>
+		</plugin>
+		<!--  test plugin -->
+		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.16</version>
+				<configuration>
+					<includes>
+						<include>**/*Tests.java</include>
+					</includes>
+					<argLine>-Xmx256M</argLine>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-junit47</artifactId>
+						<version>2.16</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+    </plugins>
+  </build>
+</project>
